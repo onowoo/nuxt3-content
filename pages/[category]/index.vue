@@ -1,23 +1,29 @@
 <script setup>
-import { useContent } from '@nuxt/content'
+// import { useContent } from '@nuxt/content'
 
-const route = useRoute()
-const { $content } = useContent()
-const { params } = route
-const category = params.category
+const { path } = useRoute()
+// const { $content } = useContent()
+const category = computed(() => {
+  const name = path || ''
+  let strName = ''
 
-const articles = await $content(`blog/${category}`).fetch()
+  if (Array.isArray(name))
+    strName = name.at(0) || ''
+  else strName = name
+  return strName
+})
+
 </script>
 
 <template>
   <div>
     <h1>Articles for {{ category }}</h1>
-    <ul>
-      <li v-for="article in articles" :key="article.uid">
-        <NuxtLink :to="`/${category}/${article.slug}`">
-          {{ article.title }}
-        </NuxtLink>
-      </li>
-    </ul>
+    <ContentList :path="path" v-slot="{ list }">
+      <!-- {{ list }} -->
+      <div v-for="article in list" :key="article._path" @click="$router.push(article._path)" cursor="pointer">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+      </div>
+    </ContentList>
   </div>
 </template>

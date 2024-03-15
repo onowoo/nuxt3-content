@@ -1,0 +1,18 @@
+{
+  "@vite/client": {
+    "prefetch": true,
+    "isEntry": true,
+    "file": "@vite/client",
+    "css": [],
+    "module": true,
+    "resourceType": "script"
+  },
+  "/Volumes/Data/nuxt/nuxt3-content/node_modules/.pnpm/nuxt@3.10.3_eslint-ts-patch@8.56.0-0_rollup@2.79.1_typescript@5.4.2_vite@5.1.6_vue-tsc@1.8.27/node_modules/nuxt/dist/app/entry.js": {
+    "resourceType": "script",
+    "module": true,
+    "prefetch": true,
+    "preload": true,
+    "isEntry": true,
+    "file": "/Volumes/Data/nuxt/nuxt3-content/node_modules/.pnpm/nuxt@3.10.3_eslint-ts-patch@8.56.0-0_rollup@2.79.1_typescript@5.4.2_vite@5.1.6_vue-tsc@1.8.27/node_modules/nuxt/dist/app/entry.js"
+  }
+}

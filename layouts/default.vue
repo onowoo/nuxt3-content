@@ -1,5 +1,5 @@
 <template>
-  <main class="text-center">
+  <main text="dark-400 dark:white">
     <slot />
     <Footer />
     <div class="mx-auto mt-5 text-center text-sm opacity-25">

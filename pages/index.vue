@@ -1,26 +1,19 @@
 <script setup lang="ts">
-const online = useOnline()
 </script>
 
 <template>
-  <div class="mt-2">
+  <div class="text-dark-400 dark:bg-white">
     <Header />
     <Logos mb-6 />
-    <Suspense>
-      <ClientOnly>
-        <PageView v-if="online" />
-        <div v-else text-gray:80>
-          You're offline
-        </div>
-      </ClientOnly>
-      <template #fallback>
-        <div italic op50>
-          <span animate-pulse>Loading...</span>
-        </div>
-      </template>
-    </Suspense>
     <InputEntry />
     <ui-landing-card />
-    <ContentList />
+    <!-- <ContentList /> -->
+    <ContentList path="/" v-slot="{ list }">
+      <div v-for="article in list" :key="article._path">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <p>{{ article.date }}</p>
+      </div>
+    </ContentList>
   </div>
 </template>

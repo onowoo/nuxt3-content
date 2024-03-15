@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
+    '@unocss/extractor-mdc',
     '@nuxt/content',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
@@ -23,7 +24,17 @@ export default defineNuxtConfig({
   css: [
     '@unocss/reset/tailwind.css',
   ],
-
+	content: {
+		markdown: {
+			toc: {
+				depth: 3,
+				searchDepth: 3,
+			},
+		},
+		highlight: {
+			theme: "dracula-soft",
+		},
+	},
   colorMode: {
     classSuffix: '',
   },
@@ -65,10 +76,10 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  features: {
-    // For UnoCSS
-    inlineStyles: false,
-  },
+  // features: {
+  //   // For UnoCSS
+  //   inlineStyles: false,
+  // },
 
   eslintConfig: {
     setup: false,
