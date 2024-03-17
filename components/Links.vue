@@ -1,10 +1,9 @@
 <template>
   <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
-    <ContentList path="/" v-slot="{ tagArticle }">
-    {{tagArticle}}
+    <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
       <div
-        v-for="article in tagArticle"
-        :key="article._path"
+        v-for="link in data.body"
+        :key="link.id"
         class="documentation-container relative order-last col-span-2 row-span-2 max-w-110 items-center rounded-xl text-black shadow lg:order-none lg:col-span-2 dark:border-transparent hover:border-transparent dark:text-white"
       >
         <div
@@ -14,31 +13,28 @@
           flex="~ col"
           class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
         >
-          <NuxtLink :to="article._path">
-            <div h-8>{{ article.title }}</div>
-          </NuxtLink>
-          <div text="xs more gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
-          <div flex="~" text="xs gray-500">
-            <div>{{ article.category }}</div>
-            <div>{{ article.date }}</div>
+          <div h-8>{{ link.title }}</div>
+          <div text="xs more gray-500" flex="1">{{ sliceStr(link.description,100) }}</div>
+          <div flex="~ justify-between" text="xs gray-500">
+            <div>{{ link.category }}</div>
+            <div flex="~ gap-2">
+              <NuxtLink :to="link.site" target="_blank">{{ `官网` }}</NuxtLink>
+              <NuxtLink :to="link.site" target="_blank">{{ `仓库` }}</NuxtLink>
+              <NuxtLink :to="link.site" target="_blank">{{ `文档` }}</NuxtLink>
+            </div>
           </div>
         </div>
       </div>
-    </ContentList>
+    </ContentQuery>
   </div>
 </template>
 <script setup>
-const route = useRoute()
+const { path } = useRoute()
 const sliceStr = computed(()=>{
   return function (val,len) {
     return String(val).length > len ? String(val).slice(0,len) + "..." : val
   }
 })
-const tagArticle = await queryContent('/').where({
-      'tags' : {$contains: route.params.slut}
-}).find()
-console.log(tagArticle);
-
 </script>
 
 <style scoped>

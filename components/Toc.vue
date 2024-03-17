@@ -17,20 +17,20 @@ const flattenLinks = (links) => {
     })
     .flat(1);
 
-  console.log({ _links });
+  // console.log({ _links });
 
   return _links;
 };
 </script>
 
 <template>
-  <nav class="toc">
-    <header class="toc-header">
+  <nav class="">
+    <header class="bg-transparent">
       <h3 class="text-xl font-bold">Table of contents</h3>
     </header>
     <ul class="toc-links">
       <!-- render each link with depth class -->
-      <li v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth}`">
+      <li text="xs" v-for="link of flattenLinks(links)" :key="link.id" :class="`toc-link _${link.depth}`">
         <a :href="`#${link.id}`">
           {{ link.text }}
         </a>

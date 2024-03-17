@@ -1,9 +1,9 @@
 <template>
-  <main text="dark-400 dark:white">
+<div min-h-screen flex="~ col">
+  <div class=" bg-white dark:bg-gray-900/60 shadow"><Header /></div>
+  <main text="dark-400 dark:white" w-full flex="grow" flex-1 overflow="auto">
     <slot />
-    <Footer />
-    <div class="mx-auto mt-5 text-center text-sm opacity-25">
-      [Default Layout]
-    </div>
   </main>
+  <Footer />
+</div>
 </template>

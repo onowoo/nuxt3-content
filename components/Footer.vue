@@ -1,7 +1,5 @@
 <template>
-  <div text="xl gray4" m-5 flex="~ gap3" justify-center>
-    <NuxtLink i-carbon-campsite to="/" />
-    <a i-carbon-logo-github href="https://github.com/antfu/vitesse-nuxt3" target="_blank" />
-    <DarkToggle />
+  <div h-15 border="t gray-200 dark:gray-800" flex="~ justify-center items-center" text="black dark:gray-400 xs" font-thin>
+    Copyright © 2016-2024 ONO's Mark - MIT License , Just build by Vue3 Nuxt3 Content Vite UnoCss
   </div>
 </template>

@@ -1,29 +1,51 @@
 <script setup>
-// import { useContent } from '@nuxt/content'
-// const route = useRoute()
-// // const { $content } = useContent()
-// const { params } = route
-// console.log(route);
-// const currentCategory = params.category || '' // 如果没有category参数，则为空字符串
-
-// const menuItems = await $content('menus').fetch() // 假设您的菜单项存储在menus集合中
+const menu = [
+  {
+    name: "首页",
+    path: "/",
+  },
+  {
+    name: "前端",
+    path: "/frontend",
+  },
+  {
+    name: "后端",
+    path: "/backend",
+  },
+  {
+    name: "导航",
+    path: "/link",
+  },
+];
+const activeStyle = "text-[#00dc82]";
 </script>
 
 <template>
-    <nav>
-    <ContentNavigation v-slot="{ navigation }">
-      <ul>
-        <li v-for="link of navigation" :key="link._path">
-          <NuxtLink :to="link._path">{{ link.title }}</NuxtLink>
+  <nav
+    class="w-full max-w-4xl mx-auto h-15 font-300"
+    text="dark:white dark-300 14px"
+    flex="~ justify-between items-center"
+  >
+    <Logos />
+    <div flex="~ items-center gap-6">
+      <ul flex="~ gap-4">
+        <li
+          v-for="item in menu"
+          :key="item.path"
+          :class="$route.path === item.path ? activeStyle : ''"
+        >
+          <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
         </li>
       </ul>
-    </ContentNavigation>
+      <div text="lg gray4" flex="~ gap3" justify-center>
+        <NuxtLink i-carbon-campsite to="/" />
+        <a
+          i-carbon-logo-github
+          href="https://github.com/"
+          target="_blank"
+        />
+        <DarkToggle />
+      </div>
+    </div>
   </nav>
 </template>
-
-<style scoped>
-.active {
-  /* 添加高亮样式 */
-  font-weight: bold;
-}
-</style>

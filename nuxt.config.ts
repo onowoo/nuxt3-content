@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     'nuxt-module-eslint-config',
   ],
-
+  ssr: true,
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
     // but missing on offline, disabling extraction it until fixed
@@ -30,10 +30,20 @@ export default defineNuxtConfig({
 				depth: 3,
 				searchDepth: 3,
 			},
+      mdc: true
 		},
-		highlight: {
-			theme: "dracula-soft",
-		},
+    highlight: {
+      // Theme used in all color schemes.
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light',
+        // Theme used if `html.dark`
+        dark: 'github-dark',
+        // Theme used if `html.sepia`
+        sepia: 'monokai'
+      },
+      langs:['json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml','bash','php']
+    }
 	},
   colorMode: {
     classSuffix: '',
@@ -47,8 +57,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: false,
-      routes: ['/'],
-      ignore: ['/hi'],
+      routes: ['/','/frontend','/backend'],
     },
   },
 
@@ -70,8 +79,17 @@ export default defineNuxtConfig({
     },
   },
 
-  pwa,
-
+  pwa: pwa,
+	routeRules: {
+		"/": { prerender: true },
+		"/blog": { prerender: true },
+		"/fastadmin": { prerender: true }
+	},
+  router: {
+		options: {
+			scrollBehaviorType: "smooth"
+		}
+	},
   devtools: {
     enabled: true,
   },
