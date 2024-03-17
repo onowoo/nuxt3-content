@@ -22,7 +22,7 @@ const activeStyle = "text-[#00dc82]";
 
 <template>
   <nav
-    class="w-full max-w-4xl mx-auto h-15 font-300"
+    class="px-5 lg:px-0 w-full max-w-4xl mx-auto h-15 font-300"
     text="dark:white dark-300 14px"
     flex="~ justify-between items-center"
   >
@@ -37,8 +37,8 @@ const activeStyle = "text-[#00dc82]";
           <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
         </div>
       </div>
-      <div text="lg gray4" flex="~ gap3" justify-center>
-        <NuxtLink i-carbon-campsite to="/" />
+      <div text="lg gray4" flex="~ gap3 row-reverse lg:row" justify-center>
+        <div i-carbon-overflow-menu-vertical lg:hidden></div>
         <a
           i-carbon-logo-github
           href="https://github.com/"

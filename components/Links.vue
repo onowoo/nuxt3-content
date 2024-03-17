@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
+  <div class="grid grid-cols-2 mx-auto max-w-4xl w-[90%] lg:w-full gap-6 md:grid-cols-6 mt-6 lg:mt-10">
     <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
       <div
         v-for="link in data.body"
@@ -14,7 +14,7 @@
           class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
         >
           <div h-8>{{ link.title }}</div>
-          <div text="xs more gray-500" flex="1">{{ sliceStr(link.description,100) }}</div>
+          <div text="xs more gray-500" flex="1">{{ sliceStr(link.description,50) }}</div>
           <div flex="~ justify-between" text="xs gray-500">
             <div>{{ link.category }}</div>
             <div flex="~ gap-2">

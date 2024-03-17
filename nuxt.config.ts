@@ -31,6 +31,9 @@ export default defineNuxtConfig({
 			},
       mdc: true
 		},
+    experimental: {
+      search: true
+    },
     highlight: {
       // Theme used in all color schemes.
       theme: {
