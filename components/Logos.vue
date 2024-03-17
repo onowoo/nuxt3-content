@@ -1,6 +1,6 @@
 <template>
-  <div inline-flex cursor-default text-xl font-600 items-center gap-3 @click="$router.push('/')" cursor="pointer">
-    <img inline-block h-8 w-8 src="/nuxt.svg">
+  <div inline-flex cursor-default text-base font-600 items-center gap-1 @click="$router.push('/')" cursor="pointer">
+    <div i-carbon-send-filled text="#00dc82 2xl"></div>
     ONO's Mark
   </div>
 </template>

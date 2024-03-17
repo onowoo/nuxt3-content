@@ -23,7 +23,7 @@ const { data } = await useAsyncData("page-data", () =>
           v-if="data.tags"
           flex="~ gap-2 items-center inline"
           class="w-full"
-          text="xs"
+          text="xs dark:gray-300"
           my-6
           >
             Tags:
@@ -35,7 +35,8 @@ const { data } = await useAsyncData("page-data", () =>
             rounded-3
             overflow="hidden"
             border="1 #00dc82"
-            bg="#00dc82/15"
+            bg="#00dc82/15 dark:#00dc82/25"
+            @click="$router.push(`/tags/${item}`)"
             >{{item}}</button>
           </div>
         </div>
@@ -72,30 +73,30 @@ const { data } = await useAsyncData("page-data", () =>
 </template>
 <style>
 .content {
-  @apply text-gray-700 dark:text-gray-200;
+  @apply text-gray-700 dark:text-gray-200 text-sm
 }
 p {
-  @apply leading-relaxed tracking-wide
+  @apply leading-relaxed tracking-wide text-sm
 }
 blockquote {
   @apply rounded-2 p-4 leading-relaxed tracking-wide bg-gray-200 dark:(bg-gray-900/80) text-gray-400 text-sm
 }
 ul li {
-  @apply list-disc ml-6 leading-relaxed tracking-wide
+  @apply list-disc ml-6 leading-relaxed tracking-wide text-sm
 }
 ol li {
-  @apply list-decimal ml-6 leading-relaxed tracking-wide
+  @apply list-decimal ml-6 leading-relaxed tracking-wide text-sm
 }
 h1 {
-  @apply text-3xl text-center font-bold;
+  @apply text-2xl text-center font-bold;
 }
 h2 {
-  @apply text-2xl border-[#00dc82] border-l-6 pl-4 rounded-1 font-bold my-4 lg:my-6;
+  @apply text-xl border-[#00dc82] border-l-6 pl-4 rounded-1 font-bold my-4 lg:my-6;
 }
 h3 {
-  @apply text-xl my-3 font-bold;
+  @apply text-lg my-3 font-bold;
 }
 h4 {
-  @apply text-lg font-bold my-3 text-gray-700 dark:text-gray-300;
+  @apply text-base font-bold my-3 text-gray-700 dark:(text-gray-300 border-gray-700)  border-l-4 pl-4 rounded-1
 }
 </style>

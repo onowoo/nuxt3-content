@@ -1,44 +1,74 @@
 <template>
-  <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
-    <ContentList path="/" v-slot="{ tagArticle }">
-    {{tagArticle}}
-      <div
-        v-for="article in tagArticle"
-        :key="article._path"
-        class="documentation-container relative order-last col-span-2 row-span-2 max-w-110 items-center rounded-xl text-black shadow lg:order-none lg:col-span-2 dark:border-transparent hover:border-transparent dark:text-white"
-      >
+    <ContentList path="/">
+      <template #default="{ list }">
+        <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
         <div
-          class="gradient-border gradient-border-square gradient-border-documentation h-40"
-        />
-        <div
-          flex="~ col"
-          class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
-        >
-          <NuxtLink :to="article._path">
-            <div h-8>{{ article.title }}</div>
-          </NuxtLink>
-          <div text="xs more gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
-          <div flex="~" text="xs gray-500">
-            <div>{{ article.category }}</div>
-            <div>{{ article.date }}</div>
+            v-for="article in list"
+            :key="article._path"
+            v-show="article._path !== '/link'"
+            class="documentation-container relative order-last col-span-2 row-span-2 max-w-110 items-center rounded-xl text-black lg:order-none lg:col-span-2 dark:border-transparent hover:border-transparent dark:text-white"
+          >
+            <div
+              class="gradient-border gradient-border-square gradient-border-documentation h-40"
+            />
+            <div
+              flex="~ col"
+              class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
+            >
+              <NuxtLink :to="article._path">
+                <div h-8>{{ article.title }}</div>
+              </NuxtLink>
+              <div text="xs gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
+              <div flex="~" text="xs gray-500">
+                <div>{{ article.category }}</div>
+                <div ml-2>{{ article.date }}</div>
+                <NuxtLink v-for="item in article.tags" :key="item" :to="`/tags/${item}`">
+                  <div 
+                    flex="~ items-center gap-2"
+                    ml-2
+                    @click="$router.push(`/tags`)"
+                    >{{ item }}
+                  </div>
+                </NuxtLink>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+            </div>
+      </template>
+      <template #not-found>
+        <section class="min-h-[80vh] flex items-center h-full p-16 dark:text-gray-100">
+            <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+              <div class="max-w-md text-center">
+                <h2 class="mb-8 font-extrabold text-9xl dark:text-gray-600">
+                  <span class="sr-only">Error</span>404
+                </h2>
+                <p class="text-2xl font-semibold md:text-3xl">对不起 没有此页面</p>
+                <p class="mt-4 mb-8 dark:text-gray-400">可以通过顶部菜单浏览更多内容</p>
+                <a 
+                rel="noopener noreferrer" 
+                href="/" 
+                class="px-8 py-3 font-semibold rounded bg-[#00dc82] text-gray-900 shadow-lg hover:(bg-#00dc82/80)">
+                返回首页
+                </a>
+              </div>
+            </div>
+          </section>
+      </template>
     </ContentList>
-  </div>
 </template>
 <script setup>
-const route = useRoute()
-const sliceStr = computed(()=>{
-  return function (val,len) {
-    return String(val).length > len ? String(val).slice(0,len) + "..." : val
-  }
-})
-const tagArticle = await queryContent('/').where({
-      'tags' : {$contains: route.params.slut}
-}).find()
+const route = useRoute();
+const sliceStr = computed(() => {
+  return function (val, len) {
+    return String(val).length > len ? String(val).slice(0, len) + "..." : val;
+  };
+});
+const tagArticle = await queryContent("/")
+  .where({
+    tags: { $contains: route.params.slut },
+  })
+  .find();
 console.log(tagArticle);
-
 </script>
 
 <style scoped>
@@ -134,10 +164,10 @@ console.log(tagArticle);
   }
 }
 .more {
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

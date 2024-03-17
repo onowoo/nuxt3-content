@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@unocss/extractor-mdc',
     '@nuxt/content',
-    '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     'nuxt-module-eslint-config',
@@ -94,10 +93,10 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  // features: {
-  //   // For UnoCSS
-  //   inlineStyles: false,
-  // },
+  features: {
+    // For UnoCSS
+    inlineStyles: false,
+  },
 
   eslintConfig: {
     setup: false,

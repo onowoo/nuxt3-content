@@ -28,15 +28,15 @@ const activeStyle = "text-[#00dc82]";
   >
     <Logos />
     <div flex="~ items-center gap-6">
-      <ul flex="~ gap-4">
-        <li
+      <div flex="~ gap-4">
+        <div
           v-for="item in menu"
           :key="item.path"
           :class="$route.path === item.path ? activeStyle : ''"
         >
           <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
-        </li>
-      </ul>
+        </div>
+      </div>
       <div text="lg gray4" flex="~ gap3" justify-center>
         <NuxtLink i-carbon-campsite to="/" />
         <a

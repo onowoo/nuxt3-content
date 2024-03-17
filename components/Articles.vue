@@ -4,7 +4,7 @@
         <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
         <div
             v-for="article in list"
-            :key="article._path"
+            :key="article.body.id"
             v-show="article._path !== '/link'"
             class="documentation-container relative order-last col-span-2 row-span-2 max-w-110 items-center rounded-xl text-black lg:order-none lg:col-span-2 dark:border-transparent hover:border-transparent dark:text-white"
           >
@@ -22,12 +22,14 @@
               <div flex="~" text="xs gray-500">
                 <div>{{ article.category }}</div>
                 <div ml-2>{{ article.date }}</div>
-                <div 
-                v-for="item in article.tags" 
-                :key="item"
-                flex="~ items-center gap-2"
-                ml-2
-                >{{ item }}</div>
+                <NuxtLink v-for="item in article.tags" :key="item" :to="`/tags/${item}`">
+                  <div 
+                    flex="~ items-center gap-2"
+                    ml-2
+                    @click="$router.push(`/tags`)"
+                    >{{ item }}
+                  </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
