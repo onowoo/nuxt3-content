@@ -30,8 +30,9 @@ const { data } = await useAsyncData("page-data", () =>
             <button
             v-for="item in data.tags" 
             :key="item"
-            px-1
-            rounded-full
+            px-2
+            flex="~ justify-center items-center"
+            rounded-3
             overflow="hidden"
             border="1 #00dc82"
             bg="#00dc82/15"
