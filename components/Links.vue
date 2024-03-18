@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 mx-6 lg:mx-auto  max-w-4xl w-[90%] lg:w-full gap-6 md:grid-cols-6 mt-20 lg:mt-25">
+  <div class="grid grid-cols-2 mx-6 lg:mx-auto lg:max-w-4xl gap-6 md:grid-cols-6 mt-20 lg:mt-25">
     <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
       <div
         v-for="link in data.body"
@@ -10,11 +10,11 @@
           class="gradient-border gradient-border-square gradient-border-documentation h-40"
         />
         <div
-          flex="~ col"
-          class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
+          flex="~ col gap-2"
+          class="h-40 p-3 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
         >
-          <div h-8>{{ link.title }}</div>
-          <div text="xs more gray-500" flex="1">{{ sliceStr(link.description,50) }}</div>
+          <div class="line-clamp-1 leading-7">{{ link.title }}</div>
+          <div text="xs more gray-500" class="line-clamp-3 leading-6" flex="1">{{ link.description }}</div>
           <div flex="~ justify-between items-center" text="xs gray-500">
             <div>{{ link.category }}</div>
             <div flex="~ gap-2">
@@ -30,11 +30,6 @@
 </template>
 <script setup>
 const { path } = useRoute()
-const sliceStr = computed(()=>{
-  return function (val,len) {
-    return String(val).length > len ? String(val).slice(0,len) + "..." : val
-  }
-})
 </script>
 
 <style scoped>

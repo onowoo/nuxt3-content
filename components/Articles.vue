@@ -63,14 +63,7 @@
 
 </template>
 <script setup>
-import { useWindowSize } from '@vueuse/core'; 
 const { path } = useRoute()
-const { width } = useWindowSize();   
-const sliceStr = computed(()=>{
-  return function (val,len) {
-    return String(val).length > len ? String(val).slice(0,len) + "..." : val
-  }
-})
 </script>
 
 <style scoped>

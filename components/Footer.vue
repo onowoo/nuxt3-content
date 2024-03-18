@@ -7,6 +7,7 @@
     <el-drawer
     v-model="menuStatus.status"
     :direction="direction"
+    size="40%"
   >
     <template #header="{titleId,titleClass}">
       <span :id="titleId" :class="titleClass"><Logos /></span>
