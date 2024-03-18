@@ -22,7 +22,7 @@ const activeStyle = ref("dark:text-[#00dc82] text-green-500");
       </div>
       <div text="lg gray4" flex="~ gap3 row-reverse lg:row" justify-center>
         <div i-carbon-overflow-menu-vertical lg:hidden @click="menuStatus.status = true"></div>
-        <a i-carbon-logo-github href="https://github.com/" target="_blank" />
+        <a i-carbon-logo-github href="https://github.com/onowoo/onosMark" target="_blank" />
         <DarkToggle />
       </div>
     </div>
