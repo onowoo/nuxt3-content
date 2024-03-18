@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   // css
-  css: ['~/assets/scss/index.scss','@unocss/reset/tailwind.css',],
+  css: ['~/assets/scss/index.scss','@unocss/reset/tailwind.css','element-plus/theme-chalk/dark/css-vars.css'],
 
   typescript: {
     strict: true,

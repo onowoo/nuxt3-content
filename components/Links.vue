@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 mx-auto max-w-4xl w-[90%] lg:w-full gap-6 md:grid-cols-6 mt-6 lg:mt-10">
+  <div class="grid grid-cols-2 mx-6 lg:mx-auto  max-w-4xl w-[90%] lg:w-full gap-6 md:grid-cols-6 mt-20 lg:mt-25">
     <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
       <div
         v-for="link in data.body"

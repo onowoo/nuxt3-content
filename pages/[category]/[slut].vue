@@ -7,7 +7,7 @@ const { data } = await useAsyncData("page-data", () =>
 </script>
 
 <template>
-  <div class="max-w-[90%] lg:max-w-3xl mx-auto">
+  <div class="max-w-[90%] lg:max-w-3xl mx-auto mt-20 lg:mt-25">
     <ContentQuery :path="$route.path" find="one">
       <template #default="{ data }">
         <div flex="~ col content">
@@ -79,7 +79,7 @@ p {
   @apply leading-relaxed tracking-wide text-sm
 }
 blockquote {
-  @apply rounded-2 p-4 leading-relaxed tracking-wide bg-gray-200 dark:(bg-gray-900/80) text-gray-400 text-sm
+  @apply rounded-2 my-4 p-4 leading-relaxed tracking-wide bg-gray-100 dark:(bg-gray-800/60) text-gray-400 text-sm
 }
 ul li {
   @apply list-disc ml-6 leading-relaxed tracking-wide text-sm

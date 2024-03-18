@@ -1,6 +1,12 @@
 <template>
 <div min-h-screen flex="~ col">
-  <div class=" bg-white dark:bg-gray-900/60 shadow"><Header /></div>
+  <div 
+  class="w-full flex justify-center items-center h-15"
+  bg="light-50/75 dark:gray-800/75"
+  backdrop="~ blur-4"
+  fixed
+  z-50
+  ><Header /></div>
   <main text="dark-400 dark:white" w-full flex="grow" flex-1 overflow="auto">
     <slot />
   </main>

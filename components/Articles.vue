@@ -1,7 +1,7 @@
 <template>
     <ContentList :path="path">
       <template #default="{ list }">
-        <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
+        <div class="grid grid-cols-2 mx-6 lg:mx-auto max-w-3xl lg:max-w-4xl gap-6 md:grid-cols-4 mt-20 lg:mt-25">
         <div
             v-for="article in list"
             :key="article.body.id"
@@ -16,7 +16,7 @@
               class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
             >
               <NuxtLink :to="article._path">
-                <div h-8>{{ article.title }}</div>
+                <div h-8>{{ sliceStr(article.title,38) }}</div>
               </NuxtLink>
               <div text="xs gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
               <div flex="~" text="xs gray-500">

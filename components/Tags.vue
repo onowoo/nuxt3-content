@@ -1,7 +1,7 @@
 <template>
     <ContentList path="/">
       <template #default="{ list }">
-        <div class="grid grid-cols-2 mx-auto max-w-4xl w-full gap-6 md:grid-cols-4 mt-6 lg:mt-10">
+        <div class="grid grid-cols-2 mx-6 lg:mx-auto  max-w-4xl gap-6 md:grid-cols-4 mt-20 lg:mt-25">
         <div
             v-for="article in list"
             :key="article._path"
