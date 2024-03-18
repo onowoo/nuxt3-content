@@ -2,6 +2,7 @@
 <div min-h-screen flex="~ col">
   <div 
   class="w-full flex justify-center items-center h-15"
+  border="b gray-100 dark:gray-700"
   bg="light-50/75 dark:gray-800/75"
   backdrop="~ blur-4"
   fixed

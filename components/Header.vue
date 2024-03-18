@@ -1,5 +1,6 @@
 <script setup>
 const menuStatus = useMenu()
+const activeStyle = ref("dark:text-[#00dc82] text-green-500");
 </script>
 
 <template>
@@ -12,9 +13,9 @@ const menuStatus = useMenu()
     <div flex="~ items-center gap-6">
       <div lg:flex="~ gap-4" hidden>
         <div
-          v-for="item in menuStatus.menu" 
-          :key="item.path"
-          :class="$route.path === item.path ? menuStatus.activeStyle : ''"
+          v-for="(item,index) in menuStatus.menu" 
+          :key="index"
+          :class="$route.path.includes(item.path) && index !==0 ? activeStyle : ''"
         >
           <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
         </div>

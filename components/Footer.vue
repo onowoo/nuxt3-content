@@ -14,7 +14,7 @@
          <div
           v-for="item in menuStatus.menu" 
           :key="item.path"
-          :class="$route.path === item.path ? menuStatus.activeStyle : 'text-gray-900 dark:text-gray-200'"
+          :class="$route.path === item.path ? activeStyle : 'text-gray-900 dark:text-gray-200'"
           flex="~ col justify-center items-center"
         >
           <NuxtLink :to="item.path" py-1>{{ item.name }}</NuxtLink>
@@ -26,5 +26,6 @@
 <script setup>
 import { CircleCloseFilled } from '@element-plus/icons-vue'
 const menuStatus = useMenu()
+const activeStyle = ref("text-[#00dc82]");
 const direction = ref('ttb')
 </script>

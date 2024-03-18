@@ -16,6 +16,7 @@ body,
   padding: 0;
 }
 html {
+  scroll-padding-top: 80px;
   background: #fff;
   color: white;
 }

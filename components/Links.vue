@@ -15,12 +15,12 @@
         >
           <div h-8>{{ link.title }}</div>
           <div text="xs more gray-500" flex="1">{{ sliceStr(link.description,50) }}</div>
-          <div flex="~ justify-between" text="xs gray-500">
+          <div flex="~ justify-between items-center" text="xs gray-500">
             <div>{{ link.category }}</div>
             <div flex="~ gap-2">
-              <NuxtLink :to="link.site" target="_blank">{{ `官网` }}</NuxtLink>
-              <NuxtLink :to="link.site" target="_blank">{{ `仓库` }}</NuxtLink>
-              <NuxtLink :to="link.site" target="_blank">{{ `文档` }}</NuxtLink>
+              <NuxtLink :to="link.site" target="_blank"><el-tag type="info" size="small" effect="plain">{{ `官网` }}</el-tag></NuxtLink>
+              <NuxtLink :to="link.git" target="_blank"><el-tag type="info" size="small" effect="plain">{{ `仓库` }}</el-tag></NuxtLink>
+              <NuxtLink :to="link.doc" target="_blank"><el-tag type="info" size="small" effect="plain">{{ `文档` }}</el-tag></NuxtLink>
             </div>
           </div>
         </div>

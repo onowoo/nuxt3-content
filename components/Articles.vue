@@ -1,7 +1,7 @@
 <template>
     <ContentList :path="path">
       <template #default="{ list }">
-        <div class="grid grid-cols-2 mx-6 lg:mx-auto max-w-3xl lg:max-w-4xl gap-6 md:grid-cols-4 mt-20 lg:mt-25">
+        <div class="grid grid-cols-2 mx-6 lg:mx-auto max-w-4xl gap-6 md:grid-cols-4 mt-20 lg:mt-25">
         <div
             v-for="article in list"
             :key="article.body.id"
@@ -16,20 +16,25 @@
               class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
             >
               <NuxtLink :to="article._path">
-                <div h-8>{{ sliceStr(article.title,38) }}</div>
+                <div h-8>{{ article.title }}</div>
               </NuxtLink>
               <div text="xs gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
-              <div flex="~" text="xs gray-500">
-                <div>{{ article.category }}</div>
-                <div ml-2>{{ article.date }}</div>
+              <div flex="~ justify-between items-center" text="xs gray-500">
+                <div flex="~ items-center gap-2">
+                  <div>{{ article.category }}</div>
+                  <div>{{ article.date }}</div>
+                </div>
+                <div flex="~ items-center gap-2">
                 <NuxtLink v-for="item in article.tags" :key="item" :to="`/tags/${item}`">
-                  <div 
-                    flex="~ items-center gap-2"
-                    ml-2
+                  <el-tag 
+                    size="small"
+                    type="info"
+                    effect="plain"
                     @click="$router.push(`/tags`)"
                     >{{ item }}
-                  </div>
+                  </el-tag>
                 </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -59,7 +64,6 @@
 </template>
 <script setup>
 const { path } = useRoute()
-const { type } = useTagType()
 const sliceStr = computed(()=>{
   return function (val,len) {
     return String(val).length > len ? String(val).slice(0,len) + "..." : val

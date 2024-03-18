@@ -17,27 +17,24 @@ const { data } = await useAsyncData("page-data", () =>
               {{ data.date }}
             </div>
           </div>
-          <Toc :links="data.body.toc.links" lg:hidden />
+          <div class="lg:(fixed -ml-70 mt-40 w-60)"><Toc :links="data.body.toc.links" /></div>
           <ContentRendererMarkdown :value="data" />
           <div 
           v-if="data.tags"
           flex="~ gap-2 items-center inline"
           class="w-full"
-          text="xs dark:gray-300"
+          text="base"
           my-6
           >
             Tags:
-            <button
+            <el-tag
             v-for="item in data.tags" 
             :key="item"
-            px-2
-            flex="~ justify-center items-center"
-            rounded-3
-            overflow="hidden"
-            border="1 #00dc82"
-            bg="#00dc82/15 dark:#00dc82/25"
+            size="small"
+            type="info"
+            effect="light"
             @click="$router.push(`/tags/${item}`)"
-            >{{item}}</button>
+            >{{item}}</el-tag>
           </div>
         </div>
       </template>

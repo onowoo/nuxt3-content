@@ -2,7 +2,6 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 
 export const useMenu = defineStore("menuStatus", () => {
   const status = ref(false)
-  const activeStyle = "text-[#00dc82]";
   const menu = [
     {
       name: "首页",
@@ -24,7 +23,6 @@ export const useMenu = defineStore("menuStatus", () => {
   return {
     status,
     menu,
-    activeStyle
   };
 });
 
