@@ -19,7 +19,6 @@
 
 <script setup>
 import { useClipboard } from '@vueuse/core'
-import { toast } from 'vue3-toastify';
 defineProps({
   code: {
     type: String,
@@ -55,13 +54,15 @@ const clip = (item) => {
   if (process.client) {
      if (isSupported.value === true) {
       copy(item)
-      toast.success("已经复制！", {
-          autoClose: 1000,
-        });
+      ElMessage({
+        message: '复制成功！',
+        type: 'success',
+      })
     } else {
-      toast.error("您的浏览器不支持！", {
-          autoClose: 1000,
-        });
+      ElMessage({
+        message: '浏览器不支持！',
+        type: 'warning',
+      })
     } 
   }
 }

@@ -1,29 +1,30 @@
-import { pwa } from './config/pwa'
-import { appDescription } from './constants/index'
-
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  modules: [
-    '@vueuse/nuxt',
-    '@unocss/nuxt',
-    '@unocss/extractor-mdc',
-    '@nuxt/content',
-    '@nuxtjs/color-mode',
-    '@vite-pwa/nuxt',
-    'nuxt-module-eslint-config',
-  ],
-  ssr: true,
-  experimental: {
-    // when using generate, payload js assets included in sw precache manifest
-    // but missing on offline, disabling extraction it until fixed
-    payloadExtraction: false,
-    renderJsonPayloads: true,
-    typedPages: true,
+  app: {
+    // head
+    head: {
+      title: 'Element Plus + Nuxt 3',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'ElementPlus + Nuxt3',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    }
   },
 
-  css: [
-    '@unocss/reset/tailwind.css',
-  ],
-	content: {
+  // css
+  css: ['~/assets/scss/index.scss','@unocss/reset/tailwind.css',],
+
+  typescript: {
+    strict: true,
+    shim: false,
+  },
+
+  content: {
 		markdown: {
 			toc: {
 				depth: 3,
@@ -46,62 +47,47 @@ export default defineNuxtConfig({
       },
       langs:['json', 'js', 'ts', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml','bash','php']
     }
-	},
+  },
+
+  // build modules
+  modules: [
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@nuxt/content',
+    '@pinia/nuxt',
+    '@element-plus/nuxt',
+    '@nuxtjs/color-mode'
+  ],
+
+  // vueuse
+  vueuse: {
+    ssrHandlers: true,
+  },
+
+  // colorMode
   colorMode: {
     classSuffix: '',
   },
 
-  nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext',
+  unocss: {
+    uno: true,
+    attributify: true,
+    icons: {
+      scale: 1.2,
+    },
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
+        },
       },
     },
-    prerender: {
-      crawlLinks: false,
-      routes: ['/','/frontend','/backend'],
-    },
   },
-
-  app: {
-    head: {
-      viewport: 'width=device-width,initial-scale=1',
-      link: [
-        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/nuxt.svg' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-      ],
-      meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: appDescription },
-        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-        { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
-        { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#222222' },
-      ],
-    },
-  },
-
-  pwa: pwa,
-	routeRules: {
-		"/": { prerender: true },
-		"/blog": { prerender: true },
-		"/fastadmin": { prerender: true }
-	},
-  router: {
-		options: {
-			scrollBehaviorType: "smooth"
-		}
-	},
-  devtools: {
-    enabled: true,
-  },
-
-  features: {
-    // For UnoCSS
-    inlineStyles: false,
-  },
-
-  eslintConfig: {
-    setup: false,
+  elementPlus: {
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    themes: ['dark'],
   },
 })

@@ -1,6 +1,5 @@
 <template>
 <div>
-  <VitePwaManifest />
   <NuxtLayout>
     <NuxtLoadingIndicator :throttle="0" />
     <NuxtPage />

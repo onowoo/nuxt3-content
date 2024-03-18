@@ -1,6 +1,6 @@
 node_modules
-.chat
-.nuxt
-.vscode
-.github
+*.log
 dist
+.output
+.nuxt
+.vercel
