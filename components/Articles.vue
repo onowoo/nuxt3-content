@@ -59,6 +59,7 @@
 </template>
 <script setup>
 const { path } = useRoute()
+const { type } = useTagType()
 const sliceStr = computed(()=>{
   return function (val,len) {
     return String(val).length > len ? String(val).slice(0,len) + "..." : val
