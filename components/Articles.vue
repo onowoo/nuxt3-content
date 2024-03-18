@@ -12,13 +12,13 @@
               class="gradient-border gradient-border-square gradient-border-documentation h-40"
             />
             <div
-              flex="~ col"
-              class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
+              flex="~ col gap-2"
+              class="h-40 p-3 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
             >
               <NuxtLink :to="article._path">
-                <div h-8 class="line-clamp-1 leading-7">{{ article.title }}</div>
+                <div class="line-clamp-1 leading-7">{{ article.title }}</div>
               </NuxtLink>
-              <div text="xs gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
+              <div text="xs gray-400" line-clamp-3 leading-6 flex="1">{{ article.description }}</div>
               <div flex="~ justify-between items-center" text="xs gray-500">
                 <div flex="~ items-center gap-2">
                   <div>{{ article.category }}</div>
