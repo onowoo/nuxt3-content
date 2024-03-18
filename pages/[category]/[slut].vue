@@ -32,7 +32,7 @@ const { data } = await useAsyncData("page-data", () =>
             :key="item"
             size="small"
             type="info"
-            effect="light"
+            effect="plain"
             @click="$router.push(`/tags/${item}`)"
             >{{item}}</el-tag>
           </div>
