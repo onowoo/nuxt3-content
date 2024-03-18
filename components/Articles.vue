@@ -16,7 +16,7 @@
               class="h-40 p-6 rounded-xl bg-white lg:flex-col dark:(bg-gray-900/60 hover:bg-[#0c0f27] border-gray-800) border border-gray-200 hover:border-transparent"
             >
               <NuxtLink :to="article._path">
-                <div h-8>{{ article.title }}</div>
+                <div h-8 class="line-clamp-1 leading-7">{{ article.title }}</div>
               </NuxtLink>
               <div text="xs gray-500" flex="1">{{ sliceStr(article.description,100) }}</div>
               <div flex="~ justify-between items-center" text="xs gray-500">
@@ -63,7 +63,9 @@
 
 </template>
 <script setup>
+import { useWindowSize } from '@vueuse/core'; 
 const { path } = useRoute()
+const { width } = useWindowSize();   
 const sliceStr = computed(()=>{
   return function (val,len) {
     return String(val).length > len ? String(val).slice(0,len) + "..." : val
