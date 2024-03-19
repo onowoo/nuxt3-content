@@ -63,10 +63,22 @@
 
 </template>
 <script setup>
-import { frontendMeta,backendMeta } from '../constants/index'
+import { indexMeta,frontendMeta,backendMeta } from '../constants/index'
 const { path } = useRoute()
-const currentMeta = path === '/frontend' ? frontendMeta : backendMeta
-useSeoMeta(currentMeta)
+const meta = ref({})
+const getMeta = ()=>{
+  if (path === '/') {
+    meta.value = indexMeta
+  } else if (path === '/frontend') {
+    meta.value = frontendMeta
+  } else {
+    meta.value = backendMeta
+  }
+}
+onMounted(()=>{
+  getMeta()
+  useSeoMeta(meta.value)
+})
 </script>
 
 <style scoped>

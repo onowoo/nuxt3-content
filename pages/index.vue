@@ -1,8 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <Articles />
   </div>
 </template>
-<script setup>
-const { path } = useRoute()
-</script>

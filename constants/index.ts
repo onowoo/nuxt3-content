@@ -1,4 +1,4 @@
-export const meta = {
+export const indexMeta = {
     name: "小野笔记",
     title: "小野笔记-老年人学习记录",
     ogTitle: "小野笔记-老年人学习记录",
@@ -9,8 +9,8 @@ export const meta = {
 }
 
 export const frontendMeta = {
-    title: `前端学习-${meta.name}`,
-    ogTitle: `前端学习-${meta.name}`,
+    title: `前端学习-${indexMeta.name}`,
+    ogTitle: `前端学习-${indexMeta.name}`,
     description: '前端学习的一些记录',
     ogDescription: '前端学习的一些记录',
     keywords:'前端学习,vue学习,nuxt学习',
@@ -18,8 +18,8 @@ export const frontendMeta = {
 }
 
 export const backendMeta = {
-    title: `后端学习-${meta.name}`,
-    ogTitle: `后端学习-${meta.name}`,
+    title: `后端学习-${indexMeta.name}`,
+    ogTitle: `后端学习-${indexMeta.name}`,
     description: '后端学习的一些记录',
     ogDescription: '后端学习的一些记录',
     keywords:'后端学习',
