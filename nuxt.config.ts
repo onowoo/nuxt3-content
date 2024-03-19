@@ -3,14 +3,8 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: 'Element Plus + Nuxt 3',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'ElementPlus + Nuxt3',
-        },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
@@ -32,9 +26,6 @@ export default defineNuxtConfig({
 			},
       mdc: true
 		},
-    experimental: {
-      search: true
-    },
     highlight: {
       // Theme used in all color schemes.
       theme: {

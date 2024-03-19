@@ -1,73 +1,108 @@
 [
 	{
-		"name": "框架",
-		"list": [
+		"title": "前端框架-后端框架-组件库-CSS框架-ONOsMark",
+		"ogTitle": "前端框架-后端框架-组件库-CSS框架-ONOsMark",
+		"description": "前端框架大全，后端框架大全，组件库大全，CSS框架大全",
+		"ogDescription": "前端框架大全，后端框架大全，组件库大全，CSS框架大全",
+		"keywords": "前端框架大全,后端框架大全,组件库大全,CSS框架大全",
+		"ogKeywords": "前端框架大全,后端框架大全,组件库大全,CSS框架大全",
+		"data":[
 			{
-				"id": 1,
-				"title": "Vue3,渐进式JavaScript框架",
-				"description": "经过编译器优化、完全响应式的渲染系统，几乎不需要手动优化。丰富的、可渐进式集成的生态系统，可以根据应用规模在库和框架间切换自如。",
-				"category": "前端",
-				"type": "框架",
-				"site": "https://cn.vuejs.org/",
-				"git":"https://github.com/vuejs/",
-				"doc":"https://cn.vuejs.org/guide/introduction.html"
+				"name": "前端框架",
+				"list": [
+					{
+						"id": 1,
+						"title": "Vue3,渐进式JavaScript框架",
+						"description": "经过编译器优化、完全响应式的渲染系统，几乎不需要手动优化。丰富的、可渐进式集成的生态系统，可以根据应用规模在库和框架间切换自如。",
+						"category": "前端",
+						"type": "框架",
+						"site": "https://cn.vuejs.org/",
+						"git":"https://github.com/vuejs/",
+						"doc":"https://cn.vuejs.org/guide/introduction.html"
+					},
+					{
+						"id": 2,
+						"title": "Nuxt3,基于VueJs的SSR框架",
+						"description": "Nuxt默认具备内置的服务器端渲染（SSR）能力，强大的路由能力",
+						"category": "前端",
+						"type": "框架",
+						"site": "https://www.nuxt.com/",
+						"git":"https://github.com/nuxt/nuxt",
+						"doc":"https://nuxt.com/docs/getting-started/introduction"
+					}
+				]
 			},
 			{
-				"id": 2,
-				"title": "Nuxt3,基于VueJs的SSR框架",
-				"description": "Nuxt默认具备内置的服务器端渲染（SSR）能力，强大的路由能力",
-				"category": "前端",
-				"type": "框架",
-				"site": "https://www.nuxt.com/",
-				"git":"https://github.com/nuxt/nuxt",
-				"doc":"https://nuxt.com/docs/getting-started/introduction"
-			}
-		]
-	},
-	{
-		"name": "CSS框架",
-		"list": [
-			{
-				"id": 1,
-				"title": "TailWindCss,可定制化的CSS框架",
-				"description": "本质上是一个工具集，包含了大量类似 flex、 pt-4、 text-center 以及 rotate-90 等工具类，可以组合使用并直接在 HTML 代码上实现任何 UI 设计。",
-				"category": "前端",
-				"type": "CSS框架",
-				"site": "https://www.tailwindcss.cn",
-				"git":"https://github.com/tailwindlabs/tailwindcss",
-				"doc":"https://tailwindcss.com/docs/installation"
+				"name": "后端框架",
+				"list": [
+					{
+						"id": 1,
+						"title": "FastAdmin,基于TP5强大的后台框架",
+						"description": "FastAdmin基于ThinkPHP强大的命令行功能扩展了一系列命令行功能，可以很方便的一键生成CRUD、生成权限菜单、压缩打包CSS和JS、启用禁用插件等功能。",
+						"category": "后端",
+						"type": "框架",
+						"site": "https://www.fastadmin.net/",
+						"git":"https://github.com/karsonzhang/fastadmin",
+						"doc":"https://doc.fastadmin.net/"
+					},
+					{
+						"id": 2,
+						"title": "Nuxt3,基于VueJs的SSR框架",
+						"description": "Nuxt默认具备内置的服务器端渲染（SSR）能力，强大的路由能力",
+						"category": "前端",
+						"type": "框架",
+						"site": "https://www.nuxt.com/",
+						"git":"https://github.com/nuxt/nuxt",
+						"doc":"https://nuxt.com/docs/getting-started/introduction"
+					}
+				]
 			},
 			{
-				"id": 2,
-				"title": "WinDiCSS,下一代工具类CSS框架",
-				"description": "Windi CSS 与 Tailwind CSS 的 v2 完全兼容。在此基础上新增了许多额外的特性，进一步提升你的工作体验，并给于更多可能性。",
-				"category": "CSS框架",
-				"site": "https://cn.windicss.org/",
-				"git":"https://github.com/windicss/windicss",
-				"doc":"https://cn.windicss.org/guide/"
+				"name": "CSS框架",
+				"list": [
+					{
+						"id": 1,
+						"title": "TailWindCss,可定制化的CSS框架",
+						"description": "本质上是一个工具集，包含了大量类似 flex、 pt-4、 text-center 以及 rotate-90 等工具类，可以组合使用并直接在 HTML 代码上实现任何 UI 设计。",
+						"category": "前端",
+						"type": "CSS框架",
+						"site": "https://www.tailwindcss.cn",
+						"git":"https://github.com/tailwindlabs/tailwindcss",
+						"doc":"https://tailwindcss.com/docs/installation"
+					},
+					{
+						"id": 2,
+						"title": "WinDiCSS,下一代工具类CSS框架",
+						"description": "Windi CSS 与 Tailwind CSS 的 v2 完全兼容。在此基础上新增了许多额外的特性，进一步提升你的工作体验，并给于更多可能性。",
+						"category": "CSS框架",
+						"site": "https://cn.windicss.org/",
+						"git":"https://github.com/windicss/windicss",
+						"doc":"https://cn.windicss.org/guide/"
+					},
+					{
+						"id": 3,
+						"title": "UnoCSS,轻量级可扩展的CSS引擎",
+						"description": "UnoCSS 是一个引擎,而非一款框架,因为它并未提供核心工具类,所有功能可以通过预设和内联配置提供。 unocss其实就是提供所有你可能需要用到的 CSS 工具",
+						"category": "前端",
+						"site": "https://unocss.dev",
+						"git":"https://github.com/unocss/unocss",
+						"doc":"https://unocss.dev/guide/"
+					}
+				]
 			},
 			{
-				"id": 3,
-				"title": "UnoCSS,轻量级可扩展的CSS引擎",
-				"description": "UnoCSS 是一个引擎,而非一款框架,因为它并未提供核心工具类,所有功能可以通过预设和内联配置提供。 unocss其实就是提供所有你可能需要用到的 CSS 工具",
-				"category": "前端",
-				"site": "https://unocss.dev",
-				"git":"https://github.com/unocss/unocss",
-				"doc":"https://unocss.dev/guide/"
-			}
-		]
-	},
-	{
-		"name": "组件库",
-		"list": [
-			{
-				"id": 1,
-				"title": "Element-Plus,基于Vue3，面向设计师和开发者的组件库",
-				"description": "不用过多介绍了，用过的都说好",
-				"category": "组件库",
-				"site": "https://element-plus.gitee.io/zh-CN/",
-				"git":"https://github.com/element-plus/element-plus",
-				"doc":"https://element-plus.gitee.io/zh-CN/guide/installation.html"
+				"name": "组件库",
+				"list": [
+					{
+						"id": 1,
+						"title": "Element-Plus,基于Vue3，面向设计师和开发者的组件库",
+						"description": "不用过多介绍了，用过的都说好",
+						"category": "组件库",
+						"site": "https://element-plus.gitee.io/zh-CN/",
+						"git":"https://github.com/element-plus/element-plus",
+						"doc":"https://element-plus.gitee.io/zh-CN/guide/installation.html"
+					}
+				]
 			}
 		]
 	}

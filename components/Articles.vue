@@ -63,7 +63,10 @@
 
 </template>
 <script setup>
+import { frontendMeta,backendMeta } from '../constants/index'
 const { path } = useRoute()
+const currentMeta = path === '/frontend' ? frontendMeta : backendMeta
+useSeoMeta(currentMeta)
 </script>
 
 <style scoped>

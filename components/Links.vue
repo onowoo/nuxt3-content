@@ -1,7 +1,7 @@
 <template>
 <div class="lg:max-w-4xl mx-auto mt-20 lg:mt-25">
-  <ContentQuery :path="$route.path" find="one" v-slot="{ data }">
-    <div v-for="item in data.body" :key="item">
+  <ContentQuery>
+    <div v-for="item in data.body[0].data" :key="item">
       <h2 class="my-4 mx-6 lg:mx-auto lg:max-w-4xl">{{ item.name }}</h2>
       <div
         class="grid grid-cols-2 mx-6 lg:mx-auto lg:max-w-4xl gap-6 md:grid-cols-6"
@@ -55,10 +55,20 @@
 </template>
 <script setup>
 const { path } = useRoute();
+const data = await queryContent('/link/').findOne()
+// console.log(data);
+useSeoMeta({
+  title: data.body[0].title,
+  ogTitle:  data.body[0].ogTitle,
+  description:  data.body[0].description,
+  ogDescription: data.body[0].ogDescription,
+  keywords: data.body[0].keywords,
+  ogKeywords: data.body[0].ogKeywords
+})
 </script>
 
 <style scoped>
-@media (prefers-color-scheme: light) {
+
   .gradient-border-documentation {
     background: linear-gradient(
       var(--gradient-angle),
@@ -68,19 +78,6 @@ const { path } = useRoute();
       rgba(0, 220, 130)
     );
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .gradient-border-documentation {
-    background: linear-gradient(
-      var(--gradient-angle),
-      rgba(0, 220, 130),
-      rgba(0, 63, 37),
-      rgba(255, 255, 255, 0.2),
-      rgba(0, 63, 37)
-    );
-  }
-}
 
 /* gradient border */
 .gradient-border {
