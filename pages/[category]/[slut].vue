@@ -3,7 +3,15 @@ const { path } = useRoute();
 const { data } = await useAsyncData("page-data", () =>
   queryContent(path).findOne()
 );
-// console.log(data);
+console.log(data.value);
+useSeoMeta({
+  title: data.value.title,
+  ogTitle:  data.value.title,
+  description:  data.value.description,
+  ogDescription: data.value.Description,
+  keywords: String(data.value.tags),
+  ogKeywords: String(data.value.tags)
+})
 </script>
 
 <template>
