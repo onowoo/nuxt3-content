@@ -1,3 +1,4 @@
 {
-    "DevChat.PythonForCommands": "/Users/onosir/.chat/mamba/envs/devchat-commands/bin/python"
+    "DevChat.PythonForCommands": "/Users/onoimac/.chat/mamba/envs/devchat-commands/bin/python",
+    "nuxt.isNuxtApp": false
 }
